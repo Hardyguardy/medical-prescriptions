@@ -1,31 +1,38 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <img src={assets.logo} alt="" />
-      <ul>
-        <NavLink>
-          <li>Home</li>
-          <hr />
+    <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
+      <img className="w-44 cursor-pointer" src={assets.logo} alt="" />
+      <ul className="hidden md:flex items-start gap-5 font-medium">
+        <NavLink to="/">
+          <li className="py-1">Home</li>
+          <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden" />
         </NavLink>
-        <NavLink>
-          <li>All Doctors</li>
-          <hr />
+        <NavLink to="/doctors">
+          <li className="py-1">All Doctors</li>
+          <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden" />
         </NavLink>
-        <NavLink>
-          <li>About</li>
-          <hr />
+        <NavLink to="/about">
+          <li className="py-1">About</li>
+          <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden" />
         </NavLink>
-        <NavLink>
-          <li>Contact</li>
-          <hr />
+        <NavLink to="/contact">
+          <li className="py-1">Contact</li>
+          <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden" />
         </NavLink>
       </ul>
-      <div>
-        <button>Create Account</button>
+      <div className="flex item-center gap-4">
+        <button
+          onClick={() => navigate("/login")}
+          className="bg-primary text-white px-8 py-3 rounded-full font-medium hidden md:block"
+        >
+          Create Account
+        </button>
       </div>
     </div>
   );
