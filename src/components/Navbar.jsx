@@ -49,7 +49,12 @@ const Navbar = () => {
                 >
                   My Appointments
                 </p>
-                <p className="hover:text-green-500 cursor-pointer">Logout</p>
+                <p
+                  onClick={() => setToken(false)}
+                  className="hover:text-green-500 cursor-pointer"
+                >
+                  Logout
+                </p>
               </div>
             </div>
           </div>
